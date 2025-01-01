@@ -15,7 +15,16 @@ class CreateDataMinedTable extends Migration
     {
         Schema::create('data_mined', function (Blueprint $table) {
             $table->id();
-            $table->string('ip_address');
+            $table->string('ip_address')->nullable();
+            $table->string('x-forwarded-for')->nullable();
+            $table->string('device_type')->nullable();
+            $table->string('os')->nullable();
+            $table->string('browser')->nullable();
+            $table->string('browser_version')->nullable();
+            $table->string('device_model')->nullable();
+            $table->string('language')->nullable();
+            $table->json('page')->nullable();
+            $table->string('request_method')->nullable();
             $table->timestamp('created_at')->useCurrent();
         });
     }

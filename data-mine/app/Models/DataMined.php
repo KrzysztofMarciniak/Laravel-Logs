@@ -13,6 +13,15 @@ class DataMined extends Model
 
     protected $fillable = [
         'ip_address',
+        'x-forwarded-for',
+        'device_type',
+        'os',
+        'browser',
+        'browser_version',
+        'device_model',
+        'language',
+        'page',
+        'request_method',
         'created_at',
     ];
 

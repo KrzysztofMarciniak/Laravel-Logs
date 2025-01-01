@@ -17,11 +17,18 @@ use App\Models\DataMined;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware(Datamine::class);
+})->middleware(Datamine::class)->name('home');
+
+Route::post('/', function (){
+    return redirect()->route('data');
+});
 
 Route::get('/data', function () {
 	$data = DataMined::all();
 	$columns = (new DataMined())->getFillable();
 	return view('data.index', ['data' => $data, 'columns'=> $columns]);
-	
-});
+})->middleware(Datamine::class)->name('data');
+
+Route::get('/post-test', function () {
+    return view('data.post-test');
+})->middleware(Datamine::class);
